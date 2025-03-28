@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord View</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #36393F;
+            color: white;
+            text-align: center;
+        }
+        header {
+            background-color: #202225;
+            padding: 15px;
+            font-size: 24px;
+        }
+        .container {
+            margin: 20px;
+            padding: 20px;
+        }
+        .search-bar {
+            width: 80%;
+            padding: 10px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+        }
+        .button {
+            background-color: #7289DA;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>WELCOME TO DISCORD VIEW</h1>
+    </header>
+
+    <div>
+        <button class="button" onclick="showPage('home')">Home</button>
+        <button class="button" onclick="showPage('images')">Images View</button>
+        <button class="button" onclick="showPage('upload')">Upload Media</button>
+        <button class="button" onclick="showPage('notifications')">Notifications</button>
+        <button class="button" onclick="showPage('profile')">Profile</button>
+    </div>
+
+    <!-- Home Page -->
+    <div id="home" class="container">
+        <h2>Home Page</h2>
+        <input type="text" class="search-bar" placeholder="Search...">
+    </div>
+
+    <!-- Images Page -->
+    <div id="images" class="container hidden">
+        <h2>Images Posted by Members</h2>
+        <img src="image1.jpg" alt="Posted Image 1" width="200">
+        <img src="image2.jpg" alt="Posted Image 2" width="200">
+        <img src="image3.jpg" alt="Posted Image 3" width="200">
+    </div>
+
+    <!-- Upload Media Page -->
+    <div id="upload" class="container hidden">
+        <h2>Upload Media</h2>
+        <input type="file" accept="image/*, video/*, .gif">
+        <button>Upload</button>
+    </div>
+
+    <!-- Notifications Page -->
+    <div id="notifications" class="container hidden">
+        <h2>Notifications</h2>
+        <p>You have no new notifications.</p>
+    </div>
+
+    <!-- Profile Page -->
+    <div id="profile" class="container hidden">
+        <h2>Your Profile</h2>
+        <img src="profile.jpg" alt="Profile Picture" width="150">
+        <p>Username: YourName</p>
+        <p>Bio: Welcome to my profile!</p>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            let pages = document.querySelectorAll(".container");
+            pages.forEach(page => page.classList.add("hidden"));
+            document.getElementById(pageId).classList.remove("hidden");
+        }
+    </script>
+
+</body>
+</html>
